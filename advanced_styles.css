@@ -1,166 +1,169 @@
-/* CSS Variables / Theme Switcher */
-:root {
-  --bg-color: #f8fafc;
-  --text-color: #0f172a;
-  --card-bg: #ffffff;
-  --primary-color: #3b82f6;
-  --accent-color: #6366f1;
-  --border-color: #e2e8f0;
-  --nav-bg: rgba(255, 255, 255, 0.85);
-}
-
-[data-theme="dark"] {
-  --bg-color: #0f172a;
-  --text-color: #f8fafc;
-  --card-bg: #1e293b;
-  --primary-color: #60a5fa;
-  --accent-color: #818cf8;
-  --border-color: #334155;
-  --nav-bg: rgba(15, 23, 42, 0.85);
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #1a1a1a;
+  background-color: #fcfcfc;
 }
 
-/* Sticky Navigation */
-.sticky-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* Mobile-First: Navigation (Flexbox) */
+.navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: var(--nav-bg);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-color);
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
 }
 
-.sticky-nav a {
-  margin: 0 1rem;
-  color: var(--text-color);
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links a {
   text-decoration: none;
+  color: #333;
   font-weight: 500;
 }
 
-.theme-btn {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
+/* 1. Hero */
+.hero {
+  padding: 4rem 1.25rem;
+  text-align: center;
+  background: #f4f6f8;
 }
 
-/* Sections */
-.section {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-}
-
-.spacer {
-  height: 80vh;
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-/* Spinner Animation */
-.spinner {
-  width: 44px;
-  height: 44px;
-  border: 4px solid var(--border-color);
-  border-top: 4px solid var(--primary-color);
-  border-radius: 50%;
-  animation: spin 0.9s linear infinite;
-  margin: 1rem auto;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* Progress Bar Animation */
-.progress-track {
-  width: 100%;
-  height: 12px;
-  background-color: var(--border-color);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 1rem;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-  animation: fillProgress 3s ease-in-out infinite;
-}
-
-@keyframes fillProgress {
-  0% { width: 0%; }
-  50% { width: 85%; }
-  100% { width: 100%; }
-}
-
-/* Pseudo-Elements (::after & ::before) */
-.section-title {
-  position: relative;
-  display: inline-block;
+.hero h1 {
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 40px;
-  height: 3px;
-  background: var(--accent-color);
-  border-radius: 2px;
+.hero p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
-.quote-card {
-  position: relative;
-  background: var(--card-bg);
-  border-left: 4px solid var(--accent-color);
-  padding: 1.5rem 1.5rem 1.5rem 3.5rem;
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #0066cc;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.quote-card::before {
-  content: "“";
-  position: absolute;
-  top: -10px;
-  left: 12px;
-  font-size: 3.5rem;
-  color: var(--accent-color);
-  font-family: Georgia, serif;
+/* Common Section Layout */
+.features, .testimonials {
+  padding: 3rem 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features h2, .testimonials h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 2. Features (CSS Grid - 1 column default for mobile) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* 3. Testimonials (Flexbox - column default for mobile) */
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+blockquote {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-left: 4px solid #0066cc;
+  border-radius: 4px;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* 4. Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid #eaeaea;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* Tablet Breakpoint (768px) */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-list {
+    flex-direction: row;
+  }
+
+  .testimonial-list blockquote {
+    flex: 1;
+  }
+}
+
+/* Desktop Breakpoint (1024px) */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 6rem 2rem;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .navbar {
+    padding: 1.25rem 3rem;
+  }
+}
+
+/* Large Desktop Breakpoint (1440px) */
+@media (min-width: 1440px) {
+  body {
+    font-size: 1.125rem;
+  }
+
+  .features, .testimonials {
+    max-width: 1400px;
+  }
 }

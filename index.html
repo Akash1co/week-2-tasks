@@ -3,60 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 2 Day 1 - Advanced CSS</title>
+  <title>Responsive Landing Page</title>
   <link rel="stylesheet" href="advanced_styles.css" />
 </head>
 <body>
 
-  <!-- Sticky Navigation with Theme Switcher -->
-  <header class="sticky-nav">
-    <div class="logo">DevUI</div>
-    <nav>
-      <a href="#spinners">Loaders</a>
-      <a href="#content">Content</a>
-      <a href="#footer">Footer</a>
+  <!-- Navigation (Flexbox) -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">BrandLogo</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
     </nav>
-    <button id="theme-toggle" class="theme-btn">Toggle Theme</button>
   </header>
 
   <main>
-    <!-- CSS-only Animated Loader & Progress Bar -->
-    <section id="spinners" class="section">
-      <h2 class="section-title">Animated Loaders</h2>
-      
-      <div class="card">
-        <h3>Spinner</h3>
-        <div class="spinner"></div>
-      </div>
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero">
+      <h1>Next-Gen Web Experiences</h1>
+      <p>Building clean, resilient, and fully responsive layouts from mobile to desktop.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </section>
 
-      <div class="card">
-        <h3>Progress Bar</h3>
-        <div class="progress-track">
-          <div class="progress-bar"></div>
+    <!-- 2. Features Section (CSS Grid) -->
+    <section id="features" class="features">
+      <h2>Features</h2>
+      <div class="grid-container">
+        <div class="card">
+          <h3>Mobile-First</h3>
+          <p>Engineered for compact screens first, progressively enhancing layout scale.</p>
+        </div>
+        <div class="card">
+          <h3>CSS Grid & Flex</h3>
+          <p>Combining two-dimensional grid layouts with one-dimensional alignment.</p>
+        </div>
+        <div class="card">
+          <h3>Adaptive & Fast</h3>
+          <p>Optimized asset delivery, low overhead, and fluid breakpoint scaling.</p>
         </div>
       </div>
     </section>
 
-    <!-- Pseudo-elements Section -->
-    <section id="content" class="section">
-      <h2 class="section-title">Decorative Elements</h2>
-      <blockquote class="quote-card">
-        Clean CSS architecture scales better than excessive JavaScript manipulation.
-      </blockquote>
-    </section>
-
-    <section id="footer" class="section spacer">
-      <h2>Scroll Target Section</h2>
-      <p>Smooth scrolling lands cleanly here.</p>
+    <!-- 3. Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2>What People Say</h2>
+      <div class="testimonial-list">
+        <blockquote>
+          <p>"The responsiveness across devices is seamless and clean."</p>
+          <cite>— Alex R., Tech Lead</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Solid layout structure and intuitive hierarchy throughout."</p>
+          <cite>— Sam K., Product Designer</cite>
+        </blockquote>
+      </div>
     </section>
   </main>
 
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    });
-  </script>
+  <!-- 4. Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2026 Brand Inc. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
