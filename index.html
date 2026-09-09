@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Landing Page</title>
+  <link rel="stylesheet" href="advanced_styles.css" />
+</head>
+<body>
+
+  <!-- Navigation (Flexbox) -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">BrandLogo</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero">
+      <h1>Next-Gen Web Experiences</h1>
+      <p>Building clean, resilient, and fully responsive layouts from mobile to desktop.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </section>
+
+    <!-- 2. Features Section (CSS Grid) -->
+    <section id="features" class="features">
+      <h2>Features</h2>
+      <div class="grid-container">
+        <div class="card">
+          <h3>Mobile-First</h3>
+          <p>Engineered for compact screens first, progressively enhancing layout scale.</p>
+        </div>
+        <div class="card">
+          <h3>CSS Grid & Flex</h3>
+          <p>Combining two-dimensional grid layouts with one-dimensional alignment.</p>
+        </div>
+        <div class="card">
+          <h3>Adaptive & Fast</h3>
+          <p>Optimized asset delivery, low overhead, and fluid breakpoint scaling.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2>What People Say</h2>
+      <div class="testimonial-list">
+        <blockquote>
+          <p>"The responsiveness across devices is seamless and clean."</p>
+          <cite>— Alex R., Tech Lead</cite>
+        </blockquote>
+        <blockquote>
+          <p>"Solid layout structure and intuitive hierarchy throughout."</p>
+          <cite>— Sam K., Product Designer</cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <!-- 4. Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2026 Brand Inc. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
